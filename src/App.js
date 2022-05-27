@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import Navbar from './components/navbar'
+import Intro from './components/intro'
+import Content from './components/content'
+import { useState } from 'react'
+import Img from './components/pics/Rectangle 3 (3).png'
 
-function App() {
+let name1='Siddharth Goyal'
+
+export default function App() {
+  const [login, setLogin] = useState(true)
+
+  const changeLogin=(value)=>{
+    setLogin(value);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <Navbar login={login} setLogin={changeLogin} img={Img} name={name1}/>
+    <Intro login={login} setLogin={changeLogin}/>
+    <Content login={login} setLogin={changeLogin}/>
+    </>
+  )
 }
 
-export default App;
